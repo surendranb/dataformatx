@@ -1,0 +1,5 @@
+{
+  "name": "PolyGlot Converter AI",
+  "description": "A universal file conversion tool powered by Gemini. Convert between Data formats (JSON, CSV, XML), Document types (MD, HTML), and Code seamlessly.",
+  "requestFramePermissions": []
+}
