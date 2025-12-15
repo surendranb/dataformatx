@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, HelpCircle, ShieldCheck, Zap, Database, Lock, Key } from 'lucide-react';
+import { X, CircleHelp, ShieldCheck, Zap, Database, Lock, Key } from 'lucide-react';
 
 interface FAQModalProps {
   isOpen: boolean;
@@ -39,7 +39,7 @@ const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 bg-slate-800/50 border-b border-slate-700">
           <h2 className="text-lg font-bold text-white flex items-center gap-2">
-            <HelpCircle size={20} className="text-blue-400" />
+            <CircleHelp size={20} className="text-blue-400" />
             Frequently Asked Questions
           </h2>
           <button 
