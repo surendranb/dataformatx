@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, ArrowDown, Sparkles, AlertTriangle, RotateCw, Settings, Boxes, CircleHelp } from 'lucide-react';
+import { ArrowRight, ArrowDown, Sparkles, AlertTriangle, RotateCw, Settings, Boxes, HelpCircle } from 'lucide-react';
 import { SUPPORTED_FORMATS, SAMPLE_DATA, MAX_INPUT_CHARS, DEFAULT_LLM_CONFIG } from './constants';
 import { FormatType, LLMConfig } from './types';
 import { convertContent } from './services/llmService';
@@ -166,7 +166,7 @@ const App: React.FC = () => {
                   className="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors border border-transparent hover:border-white/10"
                   title="FAQs"
                 >
-                  <CircleHelp size={20} />
+                  <HelpCircle size={20} />
                 </button>
                 <button 
                   onClick={() => setIsSettingsOpen(true)}

@@ -1,6 +1,6 @@
 {
   "name": "dataformatx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The Intelligent File Converter. Secure, local, and powered by AI.",
   "type": "module",
   "bin": {
