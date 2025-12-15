@@ -1,20 +1,40 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# DataFormatX 💠
 
-# Run and deploy your AI Studio app
+**The Intelligent, Private File Converter.**
 
-This contains everything you need to run your app locally.
+## What is this?
 
-View your app in AI Studio: https://ai.studio/apps/drive/1niNhATa9jpQG9Q4EarelZ2THfS-YPKuO
+DataFormatX uses AI to convert files between complex data formats (JSON, XML, CSV) or documents (Markdown, HTML, LaTeX) directly in your browser.
 
-## Run Locally
+It is designed with a **Local-First** architecture:
+*   **Private:** Data never leaves your machine (if using Local LLMs) or goes strictly to your chosen provider (Gemini/OpenAI).
+*   **Secure:** We do not store, log, or cache your files.
+*   **No Middleman:** You bring your own keys/models.
 
-**Prerequisites:**  Node.js
+## Quick Start
 
+**Run instantly (No install required):**
+```bash
+npx dataformatx
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+**Or run from source:**
+```bash
+git clone https://github.com/your-username/dataformatx.git
+cd dataformatx
+npm install
+npm start
+```
+
+## Privacy & Security
+
+1.  **Processing:** All data parsing and UI rendering happens locally in your browser.
+2.  **AI Providers:**
+    *   **Local LLMs (Ollama/LM Studio):** Data never leaves your network.
+    *   **Gemini/OpenAI:** Data is sent directly to the provider for conversion only.
+3.  **Storage:** API Keys are stored in your browser's `localStorage`.
+4.  **Analytics:** This tool contains zero telemetry or tracking.
+
+## License
+
+MIT.
