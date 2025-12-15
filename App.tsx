@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, ArrowDown, Sparkles, AlertTriangle, RotateCw, Settings, Command, Boxes } from 'lucide-react';
+import { ArrowRight, ArrowDown, Sparkles, AlertTriangle, RotateCw, Settings, Boxes, CircleHelp } from 'lucide-react';
 import { SUPPORTED_FORMATS, SAMPLE_DATA, MAX_INPUT_CHARS, DEFAULT_LLM_CONFIG } from './constants';
 import { FormatType, LLMConfig } from './types';
 import { convertContent } from './services/llmService';
 import FormatSelector from './components/FormatSelector';
 import Editor from './components/Editor';
 import SettingsModal from './components/SettingsModal';
+import FAQModal from './components/FAQModal';
 
 const App: React.FC = () => {
   const [fromFormat, setFromFormat] = useState(SUPPORTED_FORMATS[0]); // JSON
@@ -17,8 +18,9 @@ const App: React.FC = () => {
   const [isConverting, setIsConverting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Settings State
+  // Settings & Modal State
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isFAQOpen, setIsFAQOpen] = useState(false);
   const [llmConfig, setLlmConfig] = useState<LLMConfig>(DEFAULT_LLM_CONFIG);
   const [hasConfigured, setHasConfigured] = useState(false);
 
@@ -129,6 +131,11 @@ const App: React.FC = () => {
         onSave={handleSaveConfig}
       />
 
+      <FAQModal 
+        isOpen={isFAQOpen} 
+        onClose={() => setIsFAQOpen(false)}
+      />
+
       {/* Header */}
       <header className="px-6 py-4 border-b border-white/[0.08] bg-slate-950/70 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -152,13 +159,23 @@ const App: React.FC = () => {
                 <span className="text-slate-600">|</span>
                 <span className="truncate max-w-[100px]">{llmConfig.model}</span>
              </div>
-             <button 
-                onClick={() => setIsSettingsOpen(true)}
-                className="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors border border-transparent hover:border-white/10"
-                title="Settings"
-             >
-               <Settings size={20} />
-             </button>
+             
+             <div className="flex items-center gap-1">
+                <button 
+                  onClick={() => setIsFAQOpen(true)}
+                  className="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors border border-transparent hover:border-white/10"
+                  title="FAQs"
+                >
+                  <CircleHelp size={20} />
+                </button>
+                <button 
+                  onClick={() => setIsSettingsOpen(true)}
+                  className="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors border border-transparent hover:border-white/10"
+                  title="Settings"
+                >
+                  <Settings size={20} />
+                </button>
+             </div>
           </div>
         </div>
       </header>
@@ -273,16 +290,15 @@ const App: React.FC = () => {
           </div>
 
           {/* Footer Info */}
-          <div className="flex items-center justify-center gap-6 pb-6 text-slate-600">
-             <div className="flex items-center gap-2 text-xs">
-                <Command size={12} />
-                <span>Secure Local Processing</span>
-             </div>
-             <div className="w-1 h-1 rounded-full bg-slate-800" />
-             <div className="flex items-center gap-2 text-xs">
-                <Settings size={12} />
-                <span>Custom LLM Config</span>
-             </div>
+          <div className="flex items-center justify-center gap-6 pb-6 pt-2">
+             <a 
+               href="https://surendranb.com" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="text-slate-600 hover:text-slate-400 transition-colors text-xs font-medium tracking-wide"
+             >
+               Built by Surendran
+             </a>
           </div>
 
         </div>
